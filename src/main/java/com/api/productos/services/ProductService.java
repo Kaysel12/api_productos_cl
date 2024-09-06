@@ -1,5 +1,6 @@
 package com.api.productos.services;
 
+import com.api.productos.exceptions.ProductNotFoundException;
 import com.api.productos.models.ProductModel;
 import com.api.productos.repositories.IProductRepository;
 import jakarta.inject.Inject;
@@ -22,9 +23,12 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public ProductModel getProductById(Long id) {
+    public ProductModel getProductById(Long id) throws ProductNotFoundException {
         Optional<ProductModel> product = productRepository.findById(id);
-        return product.orElse(null);
+        if (!product.isPresent()){
+            throw new ProductNotFoundException("Producto no encontrado");
+        }
+        throw new ProductNotFoundException("Producto no encontrado");
     }
 
     public ProductModel updateProduct(Long id, ProductModel updatedProduct) {

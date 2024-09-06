@@ -12,13 +12,13 @@ import java.util.concurrent.CompletableFuture;
 
 @SpringBootApplication
 @ServletComponentScan
-public class ApiProductosApplication implements CommandLineRunner {
+public class ApiProductsApplication implements CommandLineRunner {
 
 	@Autowired
 	private RestThreads restThreads;
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiProductosApplication.class, args);
+		SpringApplication.run(ApiProductsApplication.class, args);
 	}
 
 	@Override

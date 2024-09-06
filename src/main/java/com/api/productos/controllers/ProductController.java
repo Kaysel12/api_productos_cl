@@ -1,5 +1,6 @@
 package com.api.productos.controllers;
 
+import com.api.productos.exceptions.ProductNotFoundException;
 import com.api.productos.models.ProductModel;
 import com.api.productos.services.ProductService;
 
@@ -32,13 +33,8 @@ public class ProductController {
 
     @GET
     @Path("/{id}")
-    public Response getProductById(@PathParam("id") Long id) {
-        ProductModel product = productService.getProductById(id);
-        if (product != null) {
-            return Response.ok(product).build();
-        } else {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
+    public ProductModel getProductById(@PathParam("id") Long id) throws ProductNotFoundException {
+        return productService.getProductById(id);
     }
 
     @PUT
