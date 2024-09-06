@@ -1,4 +1,8 @@
-# API Productos
+# Bienvenido al Proyecto API Productos
+
+<p align="center">
+    <img alt="Spring Doc Resources" title="Spring Doc Resources" src="https://i.imgur.com/fGi6EaT.png" width="450">
+</p>
 
 ## Descripción
 
